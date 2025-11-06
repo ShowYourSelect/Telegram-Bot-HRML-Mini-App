@@ -8,9 +8,9 @@
     --accent-hover: #0072e6;
     --danger-color: #ff3b30;
     --input-bg: #2c2c2e;
-    --note-bg: #2c2c2e;
-    --priority-color: #ff9500; /* Желтый для приоритета */
-    --pinned-color: #6366f1; /* Фиолетовый для закрепления */
+    --note-bg: #2c2c2e; 
+    --priority-color: #ff9500;
+    --pinned-color: #6366f1;
 }
 
 body {
@@ -67,7 +67,6 @@ h1 {
     background-color: var(--input-bg);
     color: var(--text-color);
     outline: none;
-    /* Убираем стандартные стрелки */
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
@@ -78,16 +77,31 @@ h1 {
 }
 
 
-/* --- Блок добавления заметки --- */
+/* --- Блок добавления заметки (ОБНОВЛЕНО) --- */
 .add-note-area {
-    display: flex;
-    gap: 10px;
+    display: block; /* Изменяем на блочный */
     margin-bottom: 25px;
 }
 
+#newNoteTitle {
+    /* Стиль для заголовка */
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px; /* Отступ от текста */
+    border: none;
+    border-radius: 8px;
+    background-color: var(--input-bg);
+    color: var(--text-color);
+    outline: none;
+    font-size: 1.1rem;
+    font-weight: 600;
+    box-sizing: border-box; /* Важно для 100% ширины */
+}
+
 #newNoteText {
-    flex-grow: 1;
-    min-height: 50px; /* Немного увеличим высоту */
+    /* Стиль для основного текста */
+    width: 100%; 
+    min-height: 50px;
     padding: 10px;
     border: none;
     border-radius: 8px;
@@ -96,17 +110,23 @@ h1 {
     resize: vertical;
     outline: none;
     font-size: 1rem;
+    box-sizing: border-box;
 }
 
-#newNoteText::placeholder {
+#newNoteText::placeholder, #newNoteTitle::placeholder {
     color: var(--secondary-text);
 }
 
-/* --- Список заметок --- */
+.add-note-area button {
+    width: 100%;
+    margin-top: 10px;
+}
+
+/* --- Отображение заметок (ОБНОВЛЕНО) --- */
 #notes-list {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 10px; 
     margin-bottom: 25px;
 }
 
@@ -115,28 +135,33 @@ h1 {
     padding: 15px;
     border-radius: 10px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-    border-left: 5px solid var(--note-bg); /* Дефолтная полоска */
+    border-left: 5px solid var(--note-bg);
     transition: transform 0.1s, box-shadow 0.2s;
 }
 
-/* Стиль для заметки с высоким приоритетом */
-.note-item.priority {
-    border-left: 5px solid var(--priority-color); /* Желтая полоска */
+/* Стиль для заголовка заметки */
+.note-item-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 5px;
+    color: var(--text-color);
 }
 
-/* Стиль для закрепленной заметки */
+.note-item.priority {
+    border-left: 5px solid var(--priority-color); 
+}
+
 .note-item.pinned {
-    border-left: 5px solid var(--pinned-color); /* Фиолетовая полоска */
-    /* Дополнительный акцент для закрепленных */
+    border-left: 5px solid var(--pinned-color); 
     box-shadow: 0 0 10px rgba(99, 102, 241, 0.3);
 }
-
 
 .note-text {
     word-wrap: break-word;
     white-space: pre-wrap;
     margin-bottom: 10px;
     font-size: 1rem;
+    font-weight: 400; /* Основной текст */
 }
 
 .note-meta {
@@ -157,11 +182,6 @@ h1 {
     transition: color 0.2s;
 }
 
-.note-actions button:hover {
-    color: var(--accent-color);
-}
-
-/* --- Общие кнопки --- */
 .animated-btn {
     padding: 10px 15px;
     border: none;
@@ -172,10 +192,11 @@ h1 {
     color: var(--text-color);
     background-color: var(--accent-color);
 }
+.clear-btn {
+    background-color: var(--danger-color); 
+    width: 100%;
+}
 
-/* ... (стили для кнопок saveBtn, clear-btn) ... */
-
-/* --- Секция безопасности (Подвал) --- */
 .security-info {
     margin-top: 30px;
     padding-top: 15px;
