@@ -1,1 +1,48 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ТГ Мини-блокнот</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <h1>ТГ Мини-блокнот</h1>
 
+        <div class="filter-controls">
+            <input type="text" id="searchInput" placeholder="🔎 Быстрый поиск...">
+            <select id="sortSelect">
+                <option value="date-desc">Дата (Сначала новые)</option>
+                <option value="date-asc">Дата (Сначала старые)</option>
+                <option value="priority">Приоритет</option>
+                <option value="pinned">Закрепленные</option>
+            </select>
+        </div>
+
+        <div class="add-note-area">
+            <textarea id="newNoteText" placeholder="Введите новую заметку..."></textarea>
+            <button id="addNoteBtn" class="animated-btn">
+                ➕ Добавить
+            </button>
+        </div>
+
+        <div id="notes-list">
+            </div>
+
+        <div class="footer-btns">
+            <button id="clearAllBtn" class="animated-btn clear-btn">
+                🗑️ Очистить все
+            </button>
+        </div>
+
+        <div class="security-info">
+            <p><strong>ShowYourSelect</strong></p>
+            <p>Все данные строго зашифрованы и хранятся локально в Вашем устройстве. Мы не собираем, не передаем и не храним Ваши личные записи на сторонних серверах. Политика конфиденциальности: 100% Ваши данные, 0% наши серверы.</p>
+        </div>
+    </div>
+
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
