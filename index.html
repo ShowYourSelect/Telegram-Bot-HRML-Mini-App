@@ -21,7 +21,8 @@
         </div>
 
         <div class="add-note-area">
-            <textarea id="newNoteText" placeholder="Введите новую заметку..."></textarea>
+            <input type="text" id="newNoteTitle" placeholder="Введите название блокнота (заголовок)">
+            <textarea id="newNoteText" placeholder="Введите основной текст заметки..."></textarea>
             <button id="addNoteBtn" class="animated-btn">
                 ➕ Добавить
             </button>
@@ -29,7 +30,7 @@
 
         <div id="notes-list">
             </div>
-
+        
         <div class="footer-btns">
             <button id="clearAllBtn" class="animated-btn clear-btn">
                 🗑️ Очистить все
@@ -41,7 +42,7 @@
             <p>Все данные строго зашифрованы и хранятся локально в Вашем устройстве. Мы не собираем, не передаем и не храним Ваши личные записи на сторонних серверах. Политика конфиденциальности: 100% Ваши данные, 0% наши серверы.</p>
         </div>
     </div>
-
+    
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <script src="script.js"></script>
 </body>
